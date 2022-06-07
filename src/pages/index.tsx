@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import styles from './index.less';
-import { Line } from '../charts/main';
+import chart from '../../17chart/bundle.js';
 
 export default function IndexPage() {
   useEffect(() => {
-    new Line('container');
+    new chart.Line('container');
   }, []);
 
   return (
-    <div>
+    <div className={styles.main}>
+      <h2>1. 折线图</h2>
       <div id="container"></div>
     </div>
   );

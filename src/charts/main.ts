@@ -1,3 +1,3 @@
-import Line from './Line/index';
+import Line from './Line/index.ts';
 
-export { Line };
+export default { Line };

@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "umi dev",
-    "build": "umi build",
+    "build:chart": "rollup --config rollup.config.js",
+    "build:dev": "umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
@@ -20,20 +21,23 @@
     ]
   },
   "dependencies": {
-    "@ant-design/pro-layout": "^6.38.8",
     "@antv/g2plot": "^2.4.19",
-    "react": "17.x",
-    "react-dom": "17.x",
-    "umi": "^3.5.25"
+    "@rollup/plugin-typescript": "^8.3.2",
+    "rollup": "^2.75.5",
+    "rollup-plugin-json": "^4.0.0"
   },
   "devDependencies": {
+    "@ant-design/pro-layout": "^6.38.8",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.5.25",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
+    "react": "17.x",
+    "react-dom": "17.x",
     "typescript": "^4.1.2",
+    "umi": "^3.5.25",
     "yorkie": "^2.0.0"
   }
 }
