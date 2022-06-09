@@ -1,12 +1,11 @@
-import { useEffect } from 'react';
-import styles from './index.less';
+import { useEffect } from 'react'
 
 export default function IndexPage() {
-  useEffect(() => {}, []);
+  useEffect(() => {}, [])
 
   return (
-    <div className={styles.main}>
+    <div>
       <h2>首页</h2>
     </div>
-  );
+  )
 }
