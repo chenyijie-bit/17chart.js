@@ -1,8 +1,8 @@
-type Tooltip = {
+export type Tooltip = {
   trigger: string
 }
 
-type Grid = {
+export type Grid = {
   top: number
   left: number
   right: number
@@ -10,15 +10,15 @@ type Grid = {
   containLabel: boolean
 }
 
-interface ObjectOf<V> {
+export interface ObjectOf<V> {
   [key: string]: V
 }
 
-interface XAxis {
+export interface XAxis {
   type: string
   data: string[]
   axisTick: {
-    alignWithLabel: boolean
+    show: boolean
   }
   nameTextStyle: {
     color: string
@@ -35,11 +35,34 @@ interface XAxis {
   }
 }
 
+export interface MarkLineDataItem {
+  name: string
+  yAxis?: number
+  xAxis?: number
+}
+
+export interface MarkLine {
+  silent: boolean
+  symbol: string
+  lineStyle: {
+    color: string
+  }
+  label: {
+    position: string
+    color: string
+    formatter: (params: any) => {}
+  }
+  data: MarkLineDataItem[]
+}
+
 interface YAxis {
   name: string
   type: string
   nameTextStyle: {
     align: string
+    color: string
+  }
+  axisLabel: {
     color: string
   }
   minInterval: number
@@ -50,7 +73,7 @@ interface YAxis {
   }
 }
 
-interface Serie {
+export interface SerieItem {
   name: string
   type: string
   barMaxWidth: number
@@ -61,13 +84,49 @@ interface Serie {
     color: string
     position: string
   }
+  markLine?: MarkLine
+}
+
+export interface DataZoom {
+  backgroundColor: string
+  type: string
+  show: boolean
+  height: number
+  dataBackground: {
+    lineStyle: {
+      color: string
+    }
+    areaStyle: {
+      color: string
+    }
+  }
+  selectedDataBackground: {
+    lineStyle: {
+      color: string
+    }
+    areaStyle: {
+      color: string
+    }
+  }
+  borderColor: string
+  fillerColor: string
+  textStyle: {
+    color: string
+    fontSize: number
+  }
+  left: string | number
+  right: string | number
+  brushSelect: boolean
+  start: number
+  end: number
 }
 
 export interface BarDefaultOption {
   tooltip: Tooltip
-  color: string
+  color: string | string[]
   grid: Grid
   xAxis: XAxis
   yAxis: YAxis
-  series: Serie[]
+  dataZoom: DataZoom
+  series: SerieItem[]
 }

@@ -9,7 +9,7 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', name: '首页', component: '@/pages/Index/index' },
+    { path: '/', name: '通用调试页', component: '@/pages/Index/index' },
     { path: '/bar', name: '柱状图', component: '@/pages/Bar/index' },
   ],
   fastRefresh: {},

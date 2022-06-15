@@ -1,5 +1,5 @@
 export const data1 = [
-  { value: 1, name: '手机' },
+  { value: 2, name: '手机' },
   { value: 3, name: '电脑' },
   { value: 4, name: 'iPad' },
 ]
@@ -61,3 +61,41 @@ export const data2 = [
     rate: 0.0,
   },
 ]
+
+export const data3 = [
+  { value: 0.22, name: '手机' },
+  { value: 0.33, name: '电脑' },
+  { value: 0.44, name: 'iPad' },
+]
+
+export const data4 = [
+  [
+    { value: 201, name: '手机' },
+    { value: 321, name: '电脑' },
+    { value: 124, name: 'iPad' },
+  ],
+  [
+    { value: 301, name: '手机' },
+    { value: 221, name: '电脑' },
+    { value: 424, name: 'iPad' },
+  ],
+  [
+    { value: 101, name: '手机' },
+    { value: 341, name: '电脑' },
+    { value: 224, name: 'iPad' },
+  ],
+  [
+    { value: 180, name: '手机' },
+    { value: 321, name: '电脑' },
+    { value: 174, name: 'iPad' },
+  ],
+]
+
+const _data5 = []
+for (let i = 0; i < 40; i++) {
+  _data5.push({
+    value: (Math.random() * 200).toFixed(0),
+    name: `第${i + 1}实验小学`,
+  })
+}
+export const data5 = _data5

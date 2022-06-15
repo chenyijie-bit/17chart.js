@@ -5,7 +5,7 @@ export default function IndexPage() {
 
   return (
     <div>
-      <h2>首页</h2>
+      <h2>通用调试页</h2>
     </div>
   )
 }
