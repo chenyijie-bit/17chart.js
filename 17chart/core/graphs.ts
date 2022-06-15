@@ -44,6 +44,8 @@ export default abstract class Graph {
 
     this.chart = echarts.init(this.container, undefined, chartInitOption)
 
+    this._registerEvent()
+
     new Promise<void>((resolve) => {
       resolve()
     }).then(() => {
@@ -56,7 +58,20 @@ export default abstract class Graph {
     this.chart.setOption(this.option)
   }
 
-  public resize() {
+  private _resize() {
     this.chart.resize()
+  }
+
+  private _registerEvent() {
+    this._observeReisze()
+  }
+
+  private _observeReisze() {
+    const resizeObserver = new ResizeObserver((entries) => {
+      this._resize()
+    })
+    if (this.container.parentElement) {
+      resizeObserver.observe(this.container.parentElement)
+    }
   }
 }
