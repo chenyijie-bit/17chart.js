@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
 import { clearCanvas } from '../../utils/dom'
 import $17chart from '../../../17chart/index'
-import { data1, data2, data3, data4, data5 } from './mock/data'
+import { data1, data2, data3, data4, data5, data6 } from './mock/data'
 
 export default function IndexPage() {
   useEffect(() => {
-    clearCanvas(['chart1', 'chart2', 'chart3', 'chart4'])
     // 1. 普通柱状图
     new $17chart.Bar('chart1', {
       data: data1,
@@ -151,38 +150,44 @@ export default function IndexPage() {
         name: '学校名称',
       },
       dataZoom: {
-        backgroundColor: '#E9EBF2',
-        type: 'slider',
-        show: true,
-        height: 12,
-        dataBackground: {
-          lineStyle: {
-            color: '#DCDEE2',
-          },
-          areaStyle: {
-            color: 'rgba(56, 107, 255, 0.1)',
-          },
-        },
-        selectedDataBackground: {
-          lineStyle: {
-            color: '#C5C5C5',
-          },
-          areaStyle: {
-            color: 'transparent',
-          },
-        },
-        borderColor: '#fff',
-        fillerColor: 'rgba(56, 107, 255, 0.1)',
-        textStyle: {
-          color: '#A1A3B4',
-          fontSize: 10,
-        },
-        left: '29.16%',
-        right: '29.16%',
         // 用户可设置数据
         brushSelect: false,
-        start: 25,
-        end: 75,
+        start: 15,
+        end: 85,
+      },
+    })
+
+    // 10. 有旋转X轴名称的情况
+    const chart10 = new $17chart.Bar('chart10', {
+      data: data5,
+      xField: 'name',
+      yField: 'value',
+      renderer: 'svg',
+      yAxis: {
+        name: '参测人数',
+      },
+      xAxis: {
+        name: '学校名称',
+        axisLabel: {
+          rotate: 45,
+        },
+      },
+    })
+
+    // 11. 有旋转X轴名称的情况（名字超级长的情况）
+    const chart11 = new $17chart.Bar('chart11', {
+      data: data6,
+      xField: 'name',
+      yField: 'value',
+      renderer: 'svg',
+      yAxis: {
+        name: '参测人数',
+      },
+      xAxis: {
+        name: '学校名称',
+        axisLabel: {
+          rotate: 45,
+        },
       },
     })
   }, [])
@@ -191,39 +196,51 @@ export default function IndexPage() {
     <div>
       <section>
         <h1>1. 普通柱状图</h1>
-        <div id="chart1" className="chart"></div>
+        <div id="chart1"></div>
       </section>
       <section>
         <h1>2. 有x轴名称和y轴名称</h1>
-        <div id="chart2" className="chart"></div>
+        <div id="chart2"></div>
       </section>
       <section>
         <h1>3. 有百分比的情况</h1>
-        <div id="chart3" className="chart"></div>
+        <div id="chart3"></div>
       </section>
       <section>
         <h1>4. 有name的情况（tooltip会有名称）</h1>
-        <div id="chart4" className="chart"></div>
+        <div id="chart4"></div>
       </section>
       <section>
         <h1>5. 有柱状图和折线图的情况（之后开发）</h1>
-        <div id="chart5" className="chart"></div>
+        <div id="chart5"></div>
       </section>
       <section>
         <h1>6. 多柱状图</h1>
-        <div id="chart6" className="chart"></div>
+        <div id="chart6"></div>
       </section>
       <section>
         <h1>7. 有标注的情况</h1>
-        <div id="chart7" className="chart"></div>
+        <div id="chart7"></div>
       </section>
       <section>
         <h1>8. 有标准的情况（百分比）</h1>
-        <div id="chart8" className="chart"></div>
+        <div id="chart8"></div>
       </section>
       <section>
         <h1>9. 有DataZoom区间的情况</h1>
-        <div id="chart9" className="chart"></div>
+        <div id="chart9"></div>
+      </section>
+      <section>
+        <h1>10. 有旋转X轴名称</h1>
+        <div id="chart10"></div>
+      </section>
+      <section>
+        <h1>11. 有旋转X轴名称（名字超级长的情况）</h1>
+        <div id="chart11"></div>
+      </section>
+      <section>
+        <h1>12. 取消label名称</h1>
+        <div id="chart12"></div>
       </section>
     </div>
   )

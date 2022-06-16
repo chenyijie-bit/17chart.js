@@ -1,8 +1,10 @@
 import * as echarts from 'echarts'
-
-interface ObjectOf<V> {
-  [key: string]: V
-}
+import { ObjectOf } from '../types/general'
+import {
+  getIsNeedRotate,
+  getLabelMaxHeightByRotateXAxisLabel,
+} from '../utils/option'
+import { HEIGHT } from '../utils/constants'
 
 const CHART_SOURCE = '17-chart'
 
@@ -14,7 +16,7 @@ export default abstract class Graph {
   /** 配置项 */
   public abstract option: ObjectOf<any>
 
-  constructor(container: string | HTMLElement, options) {
+  constructor(container: string | HTMLElement, options: ObjectOf<any>) {
     this.container =
       typeof container === 'string'
         ? (document.getElementById(container) as HTMLElement)
@@ -22,7 +24,7 @@ export default abstract class Graph {
 
     // 【参数错误检测】：传递的id，但是没有获取到元素
     if (typeof container === 'string' && !this.container) {
-      throw new Error(`Invalid id: Can't get the dom that id id${container}`)
+      throw new Error(`Invalid id: Can't get the dom that id is ${container}`)
     }
     // 【参数错误检测】：传递的不是id，但是不是一个DOM节点
     if (typeof container !== 'string' && this.container.nodeType !== 1) {
@@ -35,6 +37,17 @@ export default abstract class Graph {
     // 判断图表的高度(如果<=100px，那么将其给默认的高度360px)
     if (this.container.offsetHeight <= 100) {
       this.container.style.height = '360px'
+    }
+
+    // 如果旋转X轴坐标名称，如果名称过程，需要增加容器的高度。否则会出现图表展现区域过小的情况
+    if (getIsNeedRotate(options)) {
+      const height = getLabelMaxHeightByRotateXAxisLabel(options)
+      if (height > HEIGHT.MAX_BOTTOM_HEIGHT_TOLERANCE_VALUE) {
+        const extraHeight = height - HEIGHT.MAX_BOTTOM_HEIGHT_TOLERANCE_VALUE
+        this.container.style.height = `${
+          this.container.offsetHeight + extraHeight
+        }px`
+      }
     }
 
     // 设置renderer

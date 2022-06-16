@@ -99,3 +99,12 @@ for (let i = 0; i < 40; i++) {
   })
 }
 export const data5 = _data5
+
+const _data6 = []
+for (let i = 0; i < 40; i++) {
+  _data6.push({
+    value: (Math.random() * 200).toFixed(0),
+    name: `第${i + 1}实验小学(北京市xx附中望京分校)`,
+  })
+}
+export const data6 = _data6

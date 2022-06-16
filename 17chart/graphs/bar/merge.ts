@@ -1,28 +1,21 @@
 import _merge from 'lodash.merge'
-import { handler } from '../../utils/option'
-import { BarDefaultOption } from './types'
-import { is2Array, isArray } from '../../utils/tools'
+import { handler, getXAxisList } from '../../utils/option'
+import { BarDefaultOption, ObjectOf } from './types'
+import { is2Array } from '../../utils/tools'
 import { getBarSerieItem, getMarkLine, getDataZoom } from './default'
 
-export const merge = (defaultOption: BarDefaultOption, userOption) => {
-  let {
-    name,
-    data,
-    xField,
-    yField,
-    isPercent,
-    percentFixed = 0,
-    markLine,
-    dataZoom,
-  } = userOption
+export const merge = (
+  defaultOption: BarDefaultOption,
+  userOption: ObjectOf<any>,
+) => {
+  let { data, yField, isPercent, markLine, dataZoom } = userOption
 
   if (is2Array(data)) {
     // 挂载xAxis的数据
-    const xAxisData = data[0].map((i) => i[xField])
-    defaultOption.xAxis.data = xAxisData
+    defaultOption.xAxis.data = getXAxisList(userOption)
 
     // 挂载图表数据
-    const seriesData = data.map((array) => {
+    const seriesData = data.map((array: any[]) => {
       const seriesItem = getBarSerieItem()
       seriesItem.data = array.map((i) => i[yField])
 
@@ -32,8 +25,7 @@ export const merge = (defaultOption: BarDefaultOption, userOption) => {
     defaultOption.series = seriesData
   } else {
     // 挂载xAxis的数据
-    const xAxisData = data.map((i) => i[xField])
-    defaultOption.xAxis.data = xAxisData
+    defaultOption.xAxis.data = getXAxisList(userOption)
 
     // 挂载图表数据
     const seriesItem = getBarSerieItem()
@@ -65,7 +57,7 @@ export const merge = (defaultOption: BarDefaultOption, userOption) => {
   _merge(defaultOption, userOption)
 
   // 统一处理
-  handler(defaultOption, { isPercent, percentFixed, name })
+  handler(defaultOption, userOption)
 
   return defaultOption
 }
