@@ -29,7 +29,7 @@ export const merge = (
 
     // 挂载图表数据
     const seriesItem = getBarSerieItem()
-    const seriesData = data.map((i) => i[yField])
+    const seriesData = data.map((i: ObjectOf<any>) => i[yField])
     seriesItem.data = seriesData
     defaultOption.series.push(seriesItem)
   }

@@ -99,9 +99,9 @@ export const getIsNeedRotate = (userOption: any): boolean => {
 export const getXAxisList = (userOption: ObjectOf<any>): string[] => {
   const { xField, data } = userOption
   if (is2Array(data)) {
-    return data[0].map((i) => i[xField])
+    return data[0].map((i: ObjectOf<any>) => i[xField])
   } else {
-    return data.map((i) => i[xField])
+    return data.map((i: ObjectOf<any>) => i[xField])
   }
 }
 
@@ -126,7 +126,7 @@ export const getLabelMaxHeightByRotateXAxisLabel = (
   userOption: ObjectOf<any>,
 ): number => {
   const ONE_ROW_MAX_LENGTH = 100
-  const angle = get(userOption, 'xAxis.axisLabel.rotate')
+  const angle = get(userOption, 'xAxis.axisLabel.rotate') as unknown as number
   const xAxisList = getXAxisList(userOption)
   const maxLabel = getMaxAxisLabel(xAxisList)
   const length = getStrLength(maxLabel, FONT_SIZE.AXIS_LABEL)

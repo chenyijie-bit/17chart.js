@@ -1,4 +1,6 @@
-function set(obj, propsArg, value) {
+import { ObjectOf } from '../types/general'
+
+function set(obj: ObjectOf<any>, propsArg: string | string[], value: any) {
   var props, lastProp
   if (Array.isArray(propsArg)) {
     props = propsArg.slice(0)
@@ -32,7 +34,7 @@ function set(obj, propsArg, value) {
   return true
 }
 
-function prototypeCheck(prop) {
+function prototypeCheck(prop: string) {
   if (prop == '__proto__' || prop == 'constructor' || prop == 'prototype') {
     throw new Error('setting of prototype values not supported')
   }
