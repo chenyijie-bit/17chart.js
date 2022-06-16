@@ -1,4 +1,4 @@
-import _merge from 'lodash.merge'
+import { deepAssign } from '../../utils/tools'
 import { handler, getXAxisList } from '../../utils/option'
 import { BarDefaultOption, ObjectOf } from './types'
 import { is2Array } from '../../utils/tools'
@@ -37,24 +37,24 @@ export const merge = (
   // 查看是否有辅助线存在
   if (markLine) {
     const _markLine = getMarkLine(isPercent)
-    _merge(_markLine, markLine)
+    deepAssign(_markLine, markLine)
     defaultOption.series[0].markLine = _markLine
   }
 
   // 查看是否有dataZoom的存在(如果有，则需要调整底部的预留高度)
   if (dataZoom) {
     const _dataZoom = getDataZoom()
-    _merge(_dataZoom, dataZoom)
+    deepAssign(_dataZoom, dataZoom)
     defaultOption.dataZoom = _dataZoom
     defaultOption.grid.bottom = 80
   }
 
   // Merge数据(需要删除data、xField、yField三个字段)
-  const copyUserOption = _merge({}, userOption)
+  const copyUserOption = deepAssign({}, userOption)
   Reflect.deleteProperty(copyUserOption, 'data')
   Reflect.deleteProperty(copyUserOption, 'xField')
   Reflect.deleteProperty(copyUserOption, 'yField')
-  _merge(defaultOption, userOption)
+  deepAssign(defaultOption, userOption)
 
   // 统一处理
   handler(defaultOption, userOption)

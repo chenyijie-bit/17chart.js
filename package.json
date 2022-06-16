@@ -20,9 +20,9 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "main": "lib/17chart.js",
   "dependencies": {
-    "echarts": "^5.3.2",
-    "lodash.merge": "^4.6.2"
+    "echarts": "^5.3.2"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.2",

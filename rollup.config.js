@@ -1,12 +1,12 @@
-import json from 'rollup-plugin-json';
-import typescript from '@rollup/plugin-typescript';
+import json from 'rollup-plugin-json'
+import typescript from '@rollup/plugin-typescript'
 
 export default {
-  input: 'src/charts/main.ts',
+  input: '17chart/index.ts',
   output: {
     name: '$17chart',
-    file: '17chart/bundle.js',
+    file: 'lib/17chart.js',
     format: 'umd',
   },
   plugins: [json(), typescript()],
-};
+}

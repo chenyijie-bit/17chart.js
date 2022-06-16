@@ -1,3 +1,4 @@
+import { ObjectOf } from '../types/general'
 /**
  * 是否是一个二维数组(内部每个元素都应该是一个数组)
  * @param array
@@ -100,4 +101,41 @@ export const insertNewlineEveryTen = (value: string) => {
   } else {
     return value
   }
+}
+
+export const deepAssign = (objTo: ObjectOf<any>, ...objs: ObjectOf<any>[]) => {
+  objs.forEach((obj) => {
+    obj && deepAssignSingle(objTo, obj)
+  })
+  return objTo
+}
+
+export const deepAssignSingle = (objTo: ObjectOf<any>, obj: ObjectOf<any>) => {
+  if (obj instanceof Array) {
+    objTo = []
+    obj.forEach((item) => {
+      objTo.push(deepAssignSingle({}, item))
+    })
+    return
+  }
+  let keys = Object.keys(obj)
+  keys.forEach((key) => {
+    if (typeof obj[key] == 'object') {
+      if (obj[key] instanceof Array) {
+        objTo[key] = []
+        obj[key].forEach((item) => {
+          let temp = {}
+          deepAssignSingle(temp, item)
+          objTo[key].push(temp)
+        })
+      } else {
+        if (typeof objTo[key] != 'object' || objTo[key] instanceof Array) {
+          objTo[key] = {}
+        }
+        deepAssignSingle(objTo[key], obj[key])
+      }
+    } else {
+      objTo[key] = obj[key]
+    }
+  })
 }
