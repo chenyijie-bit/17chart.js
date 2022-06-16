@@ -127,6 +127,6 @@ export interface BarDefaultOption {
   grid: Grid
   xAxis: XAxis
   yAxis: YAxis
-  dataZoom: DataZoom
+  dataZoom?: DataZoom
   series: SerieItem[]
 }

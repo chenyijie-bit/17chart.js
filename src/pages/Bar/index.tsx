@@ -190,6 +190,22 @@ export default function IndexPage() {
         },
       },
     })
+
+    // 12. 取消label名称
+    new $17chart.Bar('chart12', {
+      renderer: 'svg',
+      data: data1,
+      xField: 'name',
+      yField: 'value',
+      isShowLabel: false,
+      name: '今日数码产品售卖情况',
+      xAxis: {
+        name: '商品类别',
+      },
+      yAxis: {
+        name: '售卖数量',
+      },
+    })
   }, [])
 
   return (

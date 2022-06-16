@@ -4,6 +4,7 @@ import {
   isArray,
   isString,
   is2Array,
+  isBoolean,
   getStrLength,
   insertNewlineEveryTen,
 } from './tools'
@@ -19,7 +20,7 @@ export const handler = (
   option: ObjectOf<any>,
   userOption: ObjectOf<any>,
 ): void => {
-  const { isPercent, percentFixed, name } = userOption
+  const { isPercent, percentFixed, name, isShowLabel } = userOption
   // 1. axis.name会影响grid.left和grid.right
   if (option.xAxis && option.xAxis.name) {
     const extraWidth = _getExtraWidth(option.xAxis.name, isPercent)
@@ -70,6 +71,13 @@ export const handler = (
       })
     }
   }
+
+  // 5. 是否显示数据label
+  if (isBoolean(isShowLabel)) {
+    option.series.map((serieItem: ObjectOf<any>) => {
+      set(serieItem, 'label.show', isShowLabel)
+    })
+  }
 }
 
 /**
@@ -117,11 +125,14 @@ export const getMaxAxisLabel = (axisList: string[]): string => {
 export const getLabelMaxHeightByRotateXAxisLabel = (
   userOption: ObjectOf<any>,
 ): number => {
+  const ONE_ROW_MAX_LENGTH = 100
   const angle = get(userOption, 'xAxis.axisLabel.rotate')
   const xAxisList = getXAxisList(userOption)
   const maxLabel = getMaxAxisLabel(xAxisList)
   const length = getStrLength(maxLabel, FONT_SIZE.AXIS_LABEL)
-  const height = Math.sin(angle) * length
+  const height =
+    Math.sin(angle) *
+    (length >= ONE_ROW_MAX_LENGTH ? ONE_ROW_MAX_LENGTH : length)
 
   return height
 }

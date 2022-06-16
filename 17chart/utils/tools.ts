@@ -11,27 +11,36 @@ export const is2Array = (array: any[]) => {
 
 /**
  * 是否是一个数组类型
- * @param array {any}
- * @returns
+ * @param value
+ * @returns boolean
  */
-export const isArray = (array: any) => {
-  return Array.isArray(array)
+export const isArray = (value: any): boolean => {
+  return Array.isArray(value)
 }
 
 /**
  * 是否是字符类型
- * @param str any
- * @returns  Boolean
+ * @param value
+ * @returns  boolean
  */
-export const isString = (str: any) => {
-  return typeof str === 'string'
+export const isString = (value: any): boolean => {
+  return typeof value === 'string'
+}
+
+/**
+ * 是否是布尔类型
+ * @param value
+ * @returns boolean
+ */
+export const isBoolean = (value: any): boolean => {
+  return typeof value === 'boolean'
 }
 
 /**
  * 判断是否是中文字符
  * @param str 字符
  */
-export const isCN = (str: string) => {
+export const isCN = (str: string): boolean => {
   const cnReg = new RegExp(
     '([\u4e00-\u9fff]|[\u3002\uff1b\uff0c\uff1a\u201c\u201d\uff08\uff09\u3001\uff1f\u300a\u300b\uff01\u3010\u3011\uffe5])+',
     'g',

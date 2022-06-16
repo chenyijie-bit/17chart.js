@@ -1,11 +1,12 @@
 import { BarDefaultOption, DataZoom, MarkLine, SerieItem } from './types'
+import { COLOR } from '../../utils/constants'
 
 export const getDefaultOption = (): BarDefaultOption => {
   const defaultOption: BarDefaultOption = {
     tooltip: {
       trigger: 'item',
     },
-    color: ['#5B8FF9'],
+    color: COLOR.THEME_PRIMARY_COLORS,
     grid: {
       top: 30,
       left: 0,
