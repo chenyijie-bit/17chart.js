@@ -1,5 +1,13 @@
 export type Tooltip = {
   trigger: string
+  axisPointer: {
+    type: string
+    shadowStyle: {
+      color: string
+      shadowBlur?: number
+      opacity: number
+    }
+  }
 }
 
 export type Grid = {
@@ -31,6 +39,7 @@ export interface XAxis {
   axisLine: {
     lineStyle: {
       color: string
+      opacity: number
     }
   }
 }

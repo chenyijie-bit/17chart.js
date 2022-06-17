@@ -43,8 +43,13 @@ export const handler = (
     set(option, 'yAxis.axisLabel.formatter', formatterFn)
     // tooltip的值需要做格式化处理
     set(option, 'tooltip.valueFormatter', formatterFn)
-    // 柱状图label的值需要做格式化处理
-    set(option, 'series.0.label.formatter', dataFormatterFn)
+    // label的值需要做格式化处理
+    option.series.forEach((serieItem: ObjectOf<any>) => {
+      set(serieItem, 'label.formatter', dataFormatterFn)
+    })
+    if ((get(option, 'yAxis.minInterval') as unknown as number) >= 1) {
+      set(option, 'yAxis.minInterval', 0.1)
+    }
   }
 
   // 3. 如果name存在，将其放置到series.0.name上

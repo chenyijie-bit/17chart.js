@@ -4,7 +4,15 @@ import { COLOR } from '../../utils/constants'
 export const getDefaultOption = (): BarDefaultOption => {
   const defaultOption: BarDefaultOption = {
     tooltip: {
-      trigger: 'item',
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow',
+        shadowStyle: {
+          color: '#F3F5F9',
+          shadowBlur: 0.2,
+          opacity: 0.02,
+        },
+      },
     },
     color: COLOR.THEME_PRIMARY_COLORS,
     grid: {
@@ -30,7 +38,8 @@ export const getDefaultOption = (): BarDefaultOption => {
       },
       axisLine: {
         lineStyle: {
-          color: '#333',
+          color: '#666',
+          opacity: 0.9,
         },
       },
     },
@@ -76,11 +85,11 @@ export const getMarkLine = (isPercent: boolean): MarkLine => {
     silent: true,
     symbol: 'none',
     lineStyle: {
-      color: '#FF5858',
+      color: '#666',
     },
     label: {
       position: 'insideEndBottom',
-      color: '#FF5858',
+      color: '#666',
       formatter: (params: any) => {
         const { name, value } = params
         if (name) {

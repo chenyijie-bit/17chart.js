@@ -39,7 +39,6 @@ export default function IndexPage() {
       },
       yAxis: {
         name: '人数占比',
-        minInterval: 0.1,
       },
     })
 
@@ -75,14 +74,16 @@ export default function IndexPage() {
     //   },
     // })
 
-    // 6 多柱状图的情况
-    new $17chart.Bar('chart6', {
+    // 6 并排柱状图
+    const chart6 = new $17chart.Bar('chart6', {
       renderer: 'svg',
       xField: 'name',
       yField: 'value',
-      name: ['第一季度', '第二季度', '第三季度', '第四季度'],
+      name: ['语文', '数学', '英语'],
       data: data4,
+      isPercent: true,
     })
+    console.log(chart6.option)
 
     // 7. 有标注的情况
     new $17chart.Bar('chart7', {
@@ -231,7 +232,7 @@ export default function IndexPage() {
         <div id="chart5"></div>
       </section>
       <section>
-        <h1>6. 多柱状图</h1>
+        <h1>6. 并排柱状图</h1>
         <div id="chart6"></div>
       </section>
       <section>

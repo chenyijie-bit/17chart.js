@@ -68,28 +68,19 @@ export const data3 = [
   { value: 0.44, name: 'iPad' },
 ]
 
-export const data4 = [
-  [
-    { value: 201, name: '手机' },
-    { value: 321, name: '电脑' },
-    { value: 124, name: 'iPad' },
-  ],
-  [
-    { value: 301, name: '手机' },
-    { value: 221, name: '电脑' },
-    { value: 424, name: 'iPad' },
-  ],
-  [
-    { value: 101, name: '手机' },
-    { value: 341, name: '电脑' },
-    { value: 224, name: 'iPad' },
-  ],
-  [
-    { value: 180, name: '手机' },
-    { value: 321, name: '电脑' },
-    { value: 174, name: 'iPad' },
-  ],
-]
+const _data4 = []
+for (let i = 0; i < 3; i++) {
+  _data4.push([
+    { value: Number(Math.random().toFixed(2)), name: '1班' },
+    { value: Number(Math.random().toFixed(2)), name: '2班' },
+    { value: Number(Math.random().toFixed(2)), name: '4班' },
+    { value: Number(Math.random().toFixed(2)), name: '5班' },
+    { value: Number(Math.random().toFixed(2)), name: '6班' },
+    { value: Number(Math.random().toFixed(2)), name: '7班' },
+    { value: Number(Math.random().toFixed(2)), name: '8班' },
+  ])
+}
+export const data4 = _data4
 
 const _data5 = []
 for (let i = 0; i < 40; i++) {
