@@ -7,6 +7,7 @@ export default function IndexPage() {
   useEffect(() => {
     // 1. 普通柱状图
     new $17chart.Bar('chart1', {
+      renderer: 'svg',
       data: data1,
       xField: 'name',
       yField: 'value',
@@ -14,6 +15,7 @@ export default function IndexPage() {
 
     // 2. 有x轴名称和y轴名称
     new $17chart.Bar('chart2', {
+      renderer: 'svg',
       data: data1,
       xField: 'name',
       yField: 'value',
@@ -27,6 +29,7 @@ export default function IndexPage() {
 
     // 3. 有百分比的情况
     new $17chart.Bar('chart3', {
+      renderer: 'svg',
       data: data2,
       xField: 'key',
       yField: 'rate',
@@ -82,7 +85,9 @@ export default function IndexPage() {
       name: ['语文', '数学', '英语'],
       data: data4,
       isPercent: true,
+      legend: {},
     })
+
     console.log(chart6.option)
 
     // 7. 有标注的情况
@@ -111,6 +116,7 @@ export default function IndexPage() {
 
     // 8. 有标注的情况（百分比）
     new $17chart.Bar('chart8', {
+      renderer: 'svg',
       data: data2,
       xField: 'key',
       yField: 'rate',
@@ -137,10 +143,10 @@ export default function IndexPage() {
 
     // 9. 有DataZoom的情况
     new $17chart.Bar('chart9', {
+      renderer: 'svg',
       data: data5,
       xField: 'name',
       yField: 'value',
-      renderer: 'svg',
       grid: {
         bottom: 60,
       },
@@ -160,10 +166,10 @@ export default function IndexPage() {
 
     // 10. 有旋转X轴名称的情况
     const chart10 = new $17chart.Bar('chart10', {
+      renderer: 'svg',
       data: data5,
       xField: 'name',
       yField: 'value',
-      renderer: 'svg',
       yAxis: {
         name: '参测人数',
       },

@@ -1,25 +1,34 @@
 import { BarDefaultOption, DataZoom, MarkLine, SerieItem } from './types'
-import { COLOR } from '../../utils/constants'
+import { COLOR, CLASS_NAME } from '../../utils/constants'
 
 export const getDefaultOption = (): BarDefaultOption => {
   const defaultOption: BarDefaultOption = {
     tooltip: {
       trigger: 'axis',
+      className: CLASS_NAME.TOOLTIP,
       axisPointer: {
         type: 'shadow',
         shadowStyle: {
           color: '#F3F5F9',
           shadowBlur: 0.2,
-          opacity: 0.02,
+          opacity: 0.04,
         },
       },
+    },
+    legend: {
+      show: true,
+      bottom: 24,
+      itemWidth: 8,
+      itemHeight: 8,
+      itemGap: 16,
+      icon: 'rect',
     },
     color: COLOR.THEME_PRIMARY_COLORS,
     grid: {
       top: 30,
       left: 0,
       right: 40,
-      bottom: '3%',
+      bottom: 24,
       containLabel: true,
     },
     xAxis: {
@@ -30,6 +39,8 @@ export const getDefaultOption = (): BarDefaultOption => {
       },
       nameTextStyle: {
         color: '#999',
+        verticalAlign: 'top',
+        lineHeight: 22,
       },
       axisLabel: {
         rotate: 0,
@@ -71,6 +82,8 @@ export const getBarSerieItem = (): SerieItem => {
     type: 'bar',
     barMaxWidth: 72,
     barMinWidth: 16,
+    barGap: '30%',
+    barCategoryGap: '50%',
     data: [],
     label: {
       show: true,

@@ -8,7 +8,7 @@ export const merge = (
   defaultOption: BarDefaultOption,
   userOption: ObjectOf<any>,
 ) => {
-  let { data, yField, isPercent, markLine, dataZoom } = userOption
+  let { data, yField, isPercent, markLine, dataZoom, legend } = userOption
 
   if (is2Array(data)) {
     // 挂载xAxis的数据
@@ -54,7 +54,7 @@ export const merge = (
   Reflect.deleteProperty(copyUserOption, 'data')
   Reflect.deleteProperty(copyUserOption, 'xField')
   Reflect.deleteProperty(copyUserOption, 'yField')
-  deepAssign(defaultOption, userOption)
+  deepAssign(defaultOption, copyUserOption)
 
   // 统一处理
   handler(defaultOption, userOption)

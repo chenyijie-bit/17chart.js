@@ -30,6 +30,8 @@ export interface XAxis {
   }
   nameTextStyle: {
     color: string
+    verticalAlign: string
+    lineHeight: number
   }
   axisLabel: {
     rotate: number
@@ -87,6 +89,8 @@ export interface SerieItem {
   type: string
   barMaxWidth: number
   barMinWidth: number
+  barGap: string
+  barCategoryGap: string
   data: ObjectOf<any>[]
   label: {
     show: boolean
@@ -130,8 +134,18 @@ export interface DataZoom {
   end: number
 }
 
+export interface Legend {
+  show: boolean
+  bottom: number
+  itemWidth: number
+  itemHeight: number
+  itemGap: number
+  icon: string
+}
+
 export interface BarDefaultOption {
   tooltip: Tooltip
+  legend: Legend
   color: string | string[]
   grid: Grid
   xAxis: XAxis

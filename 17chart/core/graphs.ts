@@ -42,7 +42,10 @@ export default abstract class Graph {
     // 如果旋转X轴坐标名称，如果名称过程，需要增加容器的高度。否则会出现图表展现区域过小的情况
     if (getIsNeedRotate(options)) {
       const height = getLabelMaxHeightByRotateXAxisLabel(options)
-      if (height > HEIGHT.MAX_BOTTOM_HEIGHT_TOLERANCE_VALUE) {
+      if (
+        height > HEIGHT.MAX_BOTTOM_HEIGHT_TOLERANCE_VALUE &&
+        this.container.offsetHeight <= 360
+      ) {
         const extraHeight = height - HEIGHT.MAX_BOTTOM_HEIGHT_TOLERANCE_VALUE
         this.container.style.height = `${
           this.container.offsetHeight + extraHeight

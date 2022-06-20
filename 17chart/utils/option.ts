@@ -77,12 +77,37 @@ export const handler = (
     }
   }
 
+  // 5. 如果有legend的话，需要增加grid.bottom的值
+  if (getIsLegendShow(userOption)) {
+    const gridBottom = get(option, 'grid.bottom') as unknown as number
+    set(option, 'grid.bottom', gridBottom + 32)
+  }
+
   // 5. 是否显示数据label
   if (isBoolean(isShowLabel)) {
     option.series.map((serieItem: ObjectOf<any>) => {
       set(serieItem, 'label.show', isShowLabel)
     })
   }
+}
+
+/**
+ * 判断是否有legend
+ */
+export const getIsLegendShow = (userOption: any): boolean => {
+  let isShow = true
+
+  const nameList = get(userOption, 'name')
+
+  if (
+    (get(userOption, 'legend.show') as unknown as boolean) === false ||
+    !nameList ||
+    !nameList.length
+  ) {
+    isShow = false
+  }
+
+  return isShow
 }
 
 /**
