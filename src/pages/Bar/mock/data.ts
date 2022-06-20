@@ -99,3 +99,37 @@ for (let i = 0; i < 40; i++) {
   })
 }
 export const data6 = _data6
+
+const _data7 = []
+for (let i = 0; i < 4; i++) {
+  _data7.push([
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0, 0.1)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.1, 0.2)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.2, 0.3)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.3, 0.4)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.4, 0.5)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.5, 0.6)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.6, 0.7)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.7, 0.8)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.8, 0.9)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.9, 1]' },
+  ])
+}
+export const data7 = _data7
+
+const _data8 = []
+for (let i = 0; i < 4; i++) {
+  _data8.push([
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0, 0.1)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.1, 0.2)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.2, 0.3)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.3, 0.4)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.4, 0.5)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.5, 0.6)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.6, 0.7)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.7, 0.8)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.8, 0.9)' },
+    { value: Number((Math.random() * 0.3).toFixed(2)), name: '[0.9, 1]' },
+  ])
+}
+export const data8 = _data8

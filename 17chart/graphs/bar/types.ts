@@ -1,5 +1,6 @@
 export type Tooltip = {
   trigger: string
+  className: string
   axisPointer: {
     type: string
     shadowStyle: {
@@ -92,6 +93,7 @@ export interface SerieItem {
   barGap: string
   barCategoryGap: string
   data: ObjectOf<any>[]
+  stack?: string
   label: {
     show: boolean
     color: string

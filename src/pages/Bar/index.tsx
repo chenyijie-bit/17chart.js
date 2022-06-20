@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { clearCanvas } from '../../utils/dom'
 import $17chart from '../../../17chart/index'
-import { data1, data2, data3, data4, data5, data6 } from './mock/data'
+import { data1, data2, data3, data4, data5, data6, data7 } from './mock/data'
+import { deepAssign } from '../../../17chart/utils/tools'
 
 export default function IndexPage() {
   useEffect(() => {
@@ -213,6 +213,46 @@ export default function IndexPage() {
         name: '售卖数量',
       },
     })
+
+    // 13. 堆叠柱状图
+    new $17chart.Bar('chart13', {
+      renderer: 'svg',
+      data: data7,
+      xField: 'name',
+      yField: 'value',
+      isStack: true,
+      isPercent: true,
+      name: ['数学', '语文', '英语', '物理'],
+      labelColor: ['#fff', '#666', '#fff', '#666'],
+      xAxis: {
+        name: '得分率',
+      },
+      yAxis: {
+        name: '人数占比',
+        minInterval: 0.01,
+      },
+    })
+
+    // 14. 堆叠柱状图（程度递进：优秀、良好、一般、不及格）
+    const chart14 = new $17chart.Bar('chart14', {
+      id: 'chart14',
+      renderer: 'svg',
+      data: data7,
+      xField: 'name',
+      yField: 'value',
+      isStack: true,
+      isPercent: true,
+      color: ['#30BF78', '#F3F247', '#FFC827', '#F4664A'],
+      labelColor: ['#fff', '#666', '#666', '#fff'],
+      name: ['优秀', '良好', '一般', '不及格'],
+      xAxis: {
+        name: '得分率',
+      },
+      yAxis: {
+        name: '人数占比',
+        minInterval: 0.01,
+      },
+    })
   }, [])
 
   return (
@@ -264,6 +304,14 @@ export default function IndexPage() {
       <section>
         <h1>12. 取消label名称</h1>
         <div id="chart12"></div>
+      </section>
+      <section>
+        <h1>13. 堆叠柱状图</h1>
+        <div id="chart13"></div>
+      </section>
+      <section>
+        <h1>14. 堆叠柱状图（程度递进的关系）</h1>
+        <div id="chart14"></div>
       </section>
     </div>
   )

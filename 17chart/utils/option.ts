@@ -23,11 +23,11 @@ export const handler = (
   const { isPercent, percentFixed, name, isShowLabel } = userOption
   // 1. axis.name会影响grid.left和grid.right
   if (option.xAxis && option.xAxis.name) {
-    const extraWidth = _getExtraWidth(option.xAxis.name, isPercent)
+    const extraWidth = _getExtraWidth(option.xAxis.name, isPercent, 'right')
     option.grid.right = option.grid.right + extraWidth
   }
   if (option.yAxis && option.yAxis.name) {
-    const extraWidth = _getExtraWidth(option.yAxis.name, isPercent)
+    const extraWidth = _getExtraWidth(option.yAxis.name, isPercent, 'left')
     option.grid.left = option.grid.left + extraWidth
   }
 
@@ -52,7 +52,8 @@ export const handler = (
     }
   }
 
-  // 3. 如果name存在，将其放置到series.0.name上
+  // 3. 如果name存在
+  // 需要处理到series[index].name上 ，且可能需要改变tooltip的trigger
   if (name) {
     if (isString(name)) {
       set(option, 'series.0.name', name)
@@ -60,6 +61,7 @@ export const handler = (
       name.forEach((_name: string, index: number) => {
         set(option, `series.${index}.name`, _name)
       })
+      set(option, 'tooltip.trigger', 'axis')
     }
   }
 
@@ -173,9 +175,14 @@ export const getLabelMaxHeightByRotateXAxisLabel = (
  * @param { boolean } isPercent
  * @returns {number}
  */
-const _getExtraWidth = (name: string, isPercent: boolean): number => {
+const _getExtraWidth = (
+  name: string,
+  isPercent: boolean,
+  type: string,
+): number => {
+  const percentUnitWidth = type === 'right' ? 10 : 8
   if (name.length > 2) {
-    return (name.length - 2) * (isPercent ? 8 : 16)
+    return (name.length - 2) * (isPercent ? percentUnitWidth : 16)
   } else {
     return 0
   }

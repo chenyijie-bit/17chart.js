@@ -4,7 +4,7 @@ import { COLOR, CLASS_NAME } from '../../utils/constants'
 export const getDefaultOption = (): BarDefaultOption => {
   const defaultOption: BarDefaultOption = {
     tooltip: {
-      trigger: 'axis',
+      trigger: 'item',
       className: CLASS_NAME.TOOLTIP,
       axisPointer: {
         type: 'shadow',

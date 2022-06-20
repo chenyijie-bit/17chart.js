@@ -1,4 +1,4 @@
-import { deepAssign } from '../../utils/tools'
+import { deepAssign, isArray } from '../../utils/tools'
 import { handler, getXAxisList } from '../../utils/option'
 import { BarDefaultOption, ObjectOf } from './types'
 import { is2Array } from '../../utils/tools'
@@ -8,17 +8,27 @@ export const merge = (
   defaultOption: BarDefaultOption,
   userOption: ObjectOf<any>,
 ) => {
-  let { data, yField, isPercent, markLine, dataZoom, legend } = userOption
+  let { data, yField, isPercent, markLine, dataZoom, isStack, labelColor } =
+    userOption
 
   if (is2Array(data)) {
     // 挂载xAxis的数据
     defaultOption.xAxis.data = getXAxisList(userOption)
 
     // 挂载图表数据
-    const seriesData = data.map((array: any[]) => {
+    const seriesData = data.map((array: any[], index: number) => {
       const seriesItem = getBarSerieItem()
       seriesItem.data = array.map((i) => i[yField])
 
+      if (isStack) {
+        seriesItem.stack = 'total'
+        seriesItem.label.position = 'inside'
+        if (labelColor) {
+          seriesItem.label.color = isArray(labelColor)
+            ? labelColor[index]
+            : labelColor
+        }
+      }
       return seriesItem
     })
 

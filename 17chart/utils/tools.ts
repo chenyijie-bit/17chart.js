@@ -123,10 +123,14 @@ export const deepAssignSingle = (objTo: ObjectOf<any>, obj: ObjectOf<any>) => {
     if (typeof obj[key] == 'object') {
       if (obj[key] instanceof Array) {
         objTo[key] = []
-        obj[key].forEach((item: ObjectOf<any>) => {
-          let temp = {}
-          deepAssignSingle(temp, item)
-          objTo[key].push(temp)
+        obj[key].forEach((item: any) => {
+          if (Object.prototype.toString.call(item) === '[object Object]') {
+            let temp = {}
+            deepAssignSingle(temp, item)
+            objTo[key].push(temp)
+          } else {
+            objTo[key].push(item)
+          }
         })
       } else {
         if (typeof objTo[key] != 'object' || objTo[key] instanceof Array) {
