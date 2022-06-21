@@ -5,6 +5,8 @@ import {
   getLabelMaxHeightByRotateXAxisLabel,
 } from '../utils/option'
 import { HEIGHT } from '../utils/constants'
+import get from '../utils/safe-get'
+import { is2Array } from '../utils/tools'
 
 const CHART_SOURCE = '17-chart'
 
@@ -37,6 +39,16 @@ export default abstract class Graph {
     // 判断图表的高度(如果<=100px，那么将其给默认的高度360px)
     if (this.container.offsetHeight <= 100) {
       this.container.style.height = '360px'
+    }
+
+    // 如果是X轴和Y轴翻转的情况，此时应该根据数据去调整容器的高度
+    if ((get(options, 'yAxis.type') as any) === 'category') {
+      const data = get(options, 'data')
+      const _is2Array = is2Array(data as ObjectOf<any>[])
+      let length = _is2Array ? get(options, 'data.0').length : data.length
+      const height = length * 30
+
+      this.container.style.height = `${height}px`
     }
 
     // 如果旋转X轴坐标名称，如果名称过程，需要增加容器的高度。否则会出现图表展现区域过小的情况

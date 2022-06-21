@@ -126,14 +126,24 @@ export const getIsNeedRotate = (userOption: any): boolean => {
 }
 
 /**
- * 获取x轴的名称列表
+ * 获取轴的名称列表
  */
-export const getXAxisList = (userOption: ObjectOf<any>): string[] => {
-  const { xField, data } = userOption
-  if (is2Array(data)) {
-    return data[0].map((i: ObjectOf<any>) => i[xField])
+export const getAxisList = (userOption: ObjectOf<any>): string[] => {
+  const { xField, data, yField } = userOption
+  if ((get(userOption, 'yAxis.type') as any) === 'category') {
+    // X、Y轴翻转的情况：Y轴是分类数据
+    if (is2Array(data)) {
+      return data[0].map((i: ObjectOf<any>) => i[yField])
+    } else {
+      return data.map((i: ObjectOf<any>) => i[yField])
+    }
   } else {
-    return data.map((i: ObjectOf<any>) => i[xField])
+    // 正常情况：X轴是分类数据
+    if (is2Array(data)) {
+      return data[0].map((i: ObjectOf<any>) => i[xField])
+    } else {
+      return data.map((i: ObjectOf<any>) => i[xField])
+    }
   }
 }
 
@@ -159,7 +169,7 @@ export const getLabelMaxHeightByRotateXAxisLabel = (
 ): number => {
   const ONE_ROW_MAX_LENGTH = 100
   const angle = get(userOption, 'xAxis.axisLabel.rotate') as unknown as number
-  const xAxisList = getXAxisList(userOption)
+  const xAxisList = getAxisList(userOption)
   const maxLabel = getMaxAxisLabel(xAxisList)
   const length = getStrLength(maxLabel, FONT_SIZE.AXIS_LABEL)
   const height =

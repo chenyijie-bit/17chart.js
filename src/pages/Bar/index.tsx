@@ -256,6 +256,23 @@ export default function IndexPage() {
         end: 85,
       },
     })
+
+    // 15. 柱状图（X、Y轴翻转）
+    const chart15 = new $17chart.Bar('chart15', {
+      renderer: 'svg',
+      data: data5,
+      xField: 'value', // x轴字段此时是value
+      yField: 'name', // y轴字段此时是name
+      yAxis: {
+        type: 'category', // 增加这个参数
+        name: '学校名称',
+      },
+      xAxis: {
+        type: 'value', // 增加这个参数
+        name: '参测人数',
+      },
+    })
+    console.log(chart15.option)
   }, [])
 
   return (
@@ -315,6 +332,10 @@ export default function IndexPage() {
       <section>
         <h1>14. 堆叠柱状图（程度递进的关系）</h1>
         <div id="chart14"></div>
+      </section>
+      <section>
+        <h1>15. X、Y轴翻转的情况</h1>
+        <div id="chart15"></div>
       </section>
     </div>
   )

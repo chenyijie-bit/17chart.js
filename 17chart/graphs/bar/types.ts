@@ -24,8 +24,9 @@ export interface ObjectOf<V> {
 }
 
 export interface XAxis {
-  type: string
-  data: string[]
+  name?: string
+  type?: string
+  data?: string[]
   axisTick: {
     show: boolean
   }
@@ -68,8 +69,9 @@ export interface MarkLine {
 }
 
 interface YAxis {
-  name: string
-  type: string
+  name?: string
+  type?: string
+  data?: string[]
   nameTextStyle: {
     align: string
     color: string
