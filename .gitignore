@@ -9,6 +9,8 @@
 
 # production
 /dist
+/.mfsu-production
+.env
 
 # misc
 .DS_Store

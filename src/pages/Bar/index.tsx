@@ -88,8 +88,6 @@ export default function IndexPage() {
       legend: {},
     })
 
-    console.log(chart6.option)
-
     // 7. 有标注的情况
     new $17chart.Bar('chart7', {
       renderer: 'svg',
@@ -251,6 +249,11 @@ export default function IndexPage() {
       yAxis: {
         name: '人数占比',
         minInterval: 0.01,
+      },
+      dataZoom: {
+        brushSelect: false,
+        start: 15,
+        end: 85,
       },
     })
   }, [])

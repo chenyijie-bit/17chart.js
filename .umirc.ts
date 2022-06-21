@@ -13,5 +13,8 @@ export default defineConfig({
     { path: '/bar', name: '柱状图', component: '@/pages/Bar/index' },
   ],
   fastRefresh: {},
+  history: {
+    type: 'hash',
+  },
   mfsu: { production: { output: '.mfsu-production' } },
 })

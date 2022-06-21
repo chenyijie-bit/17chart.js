@@ -1,7 +1,10 @@
+import get from '../../utils/safe-get'
+import set from '../../utils/safe-set'
 import { deepAssign, isArray } from '../../utils/tools'
 import { handler, getXAxisList } from '../../utils/option'
 import { BarDefaultOption, ObjectOf } from './types'
 import { is2Array } from '../../utils/tools'
+import { getIsLegendShow } from '../../utils/option'
 import { getBarSerieItem, getMarkLine, getDataZoom } from './default'
 
 export const merge = (
@@ -56,7 +59,12 @@ export const merge = (
     const _dataZoom = getDataZoom()
     deepAssign(_dataZoom, dataZoom)
     defaultOption.dataZoom = _dataZoom
-    defaultOption.grid.bottom = 80
+    if (!get(userOption, 'grid.bottom')) {
+      defaultOption.grid.bottom = 80
+      if (getIsLegendShow(userOption)) {
+        set(userOption, 'legend.bottom', 48)
+      }
+    }
   }
 
   // Merge数据(需要删除data、xField、yField三个字段)
