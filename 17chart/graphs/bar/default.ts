@@ -1,4 +1,4 @@
-import { BarDefaultOption, DataZoom, MarkLine, SerieItem } from './types'
+import { BarDefaultOption, SerieItem } from './types'
 import { COLOR, CLASS_NAME } from '../../utils/constants'
 
 export const getDefaultOption = (): BarDefaultOption => {
@@ -90,66 +90,5 @@ export const getBarSerieItem = (): SerieItem => {
       color: '#666',
       position: 'top',
     },
-  }
-}
-
-export const getMarkLine = (isPercent: boolean): MarkLine => {
-  return {
-    silent: true,
-    symbol: 'none',
-    lineStyle: {
-      color: '#666',
-    },
-    label: {
-      position: 'insideEndBottom',
-      color: '#666',
-      formatter: (params: any) => {
-        const { name, value } = params
-        if (name) {
-          return `${name}: ${
-            isPercent ? (value * 100).toFixed(0) + '%' : value
-          }`
-        } else {
-          return value
-        }
-      },
-    },
-    data: [],
-  }
-}
-
-export const getDataZoom = (): DataZoom => {
-  return {
-    backgroundColor: '#E9EBF2',
-    type: 'slider',
-    show: true,
-    height: 12,
-    dataBackground: {
-      lineStyle: {
-        color: '#DCDEE2',
-      },
-      areaStyle: {
-        color: 'rgba(56, 107, 255, 0.1)',
-      },
-    },
-    selectedDataBackground: {
-      lineStyle: {
-        color: '#C5C5C5',
-      },
-      areaStyle: {
-        color: 'transparent',
-      },
-    },
-    borderColor: '#fff',
-    fillerColor: 'rgba(56, 107, 255, 0.1)',
-    textStyle: {
-      color: '#A1A3B4',
-      fontSize: 10,
-    },
-    left: '29.16%',
-    right: '29.16%',
-    brushSelect: false,
-    start: 25,
-    end: 75,
   }
 }

@@ -3,10 +3,11 @@ import { ObjectOf } from '../types/general'
 import {
   getIsNeedRotate,
   getLabelMaxHeightByRotateXAxisLabel,
-} from '../utils/option'
+} from '../utils/coordinate/rectCoor/handler'
 import { HEIGHT } from '../utils/constants'
 import get from '../utils/safe-get'
 import { is2Array } from '../utils/tools'
+import { checkIsValidData } from '../utils/validator'
 
 const CHART_SOURCE = '17-chart'
 
@@ -26,11 +27,18 @@ export default abstract class Graph {
 
     // 【参数错误检测】：传递的id，但是没有获取到元素
     if (typeof container === 'string' && !this.container) {
-      throw new Error(`Invalid id: Can't get the dom that id is ${container}`)
+      console.error(`Invalid id: Can't get the dom that id is ${container}`)
+      return
     }
     // 【参数错误检测】：传递的不是id，但是不是一个DOM节点
     if (typeof container !== 'string' && this.container.nodeType !== 1) {
-      throw new TypeError('Invalid Type: container is not a dom element')
+      console.error('Invalid Type: container is not a dom element')
+      return
+    }
+    // 【参数错误检测】：optionss不是一个数组
+    if (!checkIsValidData(get(options, 'data'))) {
+      console.error('Invalid Type: options.data should be type of Array')
+      return
     }
 
     // 设置标识

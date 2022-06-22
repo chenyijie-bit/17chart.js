@@ -258,9 +258,9 @@ export default function IndexPage() {
     })
 
     // 15. 柱状图（X、Y轴翻转）
-    const chart15 = new $17chart.Bar('chart15', {
+    new $17chart.Bar('chart15', {
       renderer: 'svg',
-      data: data5,
+      data: data5.slice(0, 10),
       xField: 'value', // x轴字段此时是value
       yField: 'name', // y轴字段此时是name
       yAxis: {
@@ -272,7 +272,27 @@ export default function IndexPage() {
         name: '参测人数',
       },
     })
-    console.log(chart15.option)
+
+    // 16. 柱状图（X、Y轴翻转，有百分比）
+    new $17chart.Bar('chart16', {
+      renderer: 'svg',
+      data: data5.slice(0, 10).map((i: any) => {
+        i.value = i.value * 0.001
+        return i
+      }),
+      xField: 'value', // x轴字段此时是value
+      yField: 'name', // y轴字段此时是name
+      yAxis: {
+        type: 'category', // 增加这个参数
+        name: '学校名称',
+      },
+      isPercent: true,
+      percentFixed: 2,
+      xAxis: {
+        type: 'value', // 增加这个参数
+        name: '参测占比',
+      },
+    })
   }, [])
 
   return (
@@ -302,11 +322,11 @@ export default function IndexPage() {
         <div id="chart6"></div>
       </section>
       <section>
-        <h1>7. 有标注的情况</h1>
+        <h1>7. 有标注（辅助线）的情况</h1>
         <div id="chart7"></div>
       </section>
       <section>
-        <h1>8. 有标准的情况（百分比）</h1>
+        <h1>8. 有标注（辅助线）的情况（百分比）</h1>
         <div id="chart8"></div>
       </section>
       <section>
@@ -336,6 +356,10 @@ export default function IndexPage() {
       <section>
         <h1>15. X、Y轴翻转的情况</h1>
         <div id="chart15"></div>
+      </section>
+      <section>
+        <h1>16. X、Y轴翻转，并且是百分比的情况</h1>
+        <div id="chart16"></div>
       </section>
     </div>
   )
