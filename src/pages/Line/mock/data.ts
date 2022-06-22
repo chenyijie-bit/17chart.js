@@ -1,16 +1,16 @@
 import { getRandomNum } from './mock.tool'
 
 export const data1 = [
-  { value: 2, name: '手机' },
-  { value: 3, name: '电脑' },
-  { value: 4, name: 'iPad' },
+  { value: 2, name: '语文' },
+  { value: 3, name: '数学' },
+  { value: 4, name: '英语' },
 ]
 
 export const data2 = [
   {
     key: '[0,145)',
     value: 0,
-    rate: 0.0,
+    rate: 0.32,
   },
   {
     key: '[145,298)',
@@ -20,7 +20,7 @@ export const data2 = [
   {
     key: '[298,451)',
     value: 0,
-    rate: 0.0,
+    rate: 0.29,
   },
   {
     key: '[451,604)',
@@ -35,7 +35,7 @@ export const data2 = [
   {
     key: '[757,910)',
     value: 0,
-    rate: 0.0,
+    rate: 0.12,
   },
   {
     key: '[910,1063)',
@@ -45,29 +45,29 @@ export const data2 = [
   {
     key: '[1063,1216)',
     value: 0,
-    rate: 0.0,
+    rate: 0.56,
   },
   {
     key: '[1216,1369)',
     value: 0,
-    rate: 0.0,
+    rate: 0.24,
   },
   {
     key: '[1369,1522)',
     value: 0,
-    rate: 0.0,
+    rate: 0.51,
   },
   {
     key: '[1522,+∞)',
     value: 0,
-    rate: 0.0,
+    rate: 0.22,
   },
 ]
 
 export const data3 = [
-  { value: 0.22, name: '手机' },
-  { value: 0.33, name: '电脑' },
-  { value: 0.44, name: 'iPad' },
+  { value: 0.22, name: '语文' },
+  { value: 0.33, name: '数学' },
+  { value: 0.44, name: '英语' },
 ]
 
 const _data4 = []

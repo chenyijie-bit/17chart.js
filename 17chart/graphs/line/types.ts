@@ -23,12 +23,13 @@ export interface LineDefaultOption {
 
 export interface SerieItem {
   name: string
-  type: 'line'
+  type: string
   data: number[]
   label: {
     show: boolean
     color: string
     position: string
   }
+  smooth?: boolean
   markLine?: MarkLine
 }

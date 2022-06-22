@@ -1,9 +1,9 @@
 import { getRandomNum } from './mock.tool'
 
 export const data1 = [
-  { value: 2, name: '手机' },
-  { value: 3, name: '电脑' },
-  { value: 4, name: 'iPad' },
+  { value: 2, name: '语文' },
+  { value: 3, name: '数学' },
+  { value: 4, name: '英语' },
 ]
 
 export const data2 = [
@@ -65,9 +65,9 @@ export const data2 = [
 ]
 
 export const data3 = [
-  { value: 0.22, name: '手机' },
-  { value: 0.33, name: '电脑' },
-  { value: 0.44, name: 'iPad' },
+  { value: 0.22, name: '语文' },
+  { value: 0.33, name: '数学' },
+  { value: 0.44, name: '英语' },
 ]
 
 const _data4 = []

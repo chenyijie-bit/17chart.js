@@ -1,11 +1,10 @@
 import { LineDefaultOption, SerieItem } from './types'
-import { COLOR, CLASS_NAME } from '../../utils/constants'
+import { COLOR } from '../../utils/constants'
 
 export const getDefaultOption = (): LineDefaultOption => {
   const defaultOption = {
     tooltip: {
       trigger: 'axis',
-      className: CLASS_NAME.TOOLTIP,
     },
     legend: {
       show: true,
@@ -13,7 +12,7 @@ export const getDefaultOption = (): LineDefaultOption => {
       itemWidth: 8,
       itemHeight: 8,
       itemGap: 16,
-      icon: 'rect',
+      icon: 'circle',
     },
     color: COLOR.THEME_PRIMARY_COLORS,
     grid: {
@@ -68,8 +67,8 @@ export const getDefaultOption = (): LineDefaultOption => {
   return defaultOption
 }
 
-export const getLineSerieItem = (): SerieItem => {
-  return {
+export const getLineSerieItem = (smooth?: boolean): SerieItem => {
+  const item: SerieItem = {
     name: '',
     type: 'line',
     data: [],
@@ -79,4 +78,10 @@ export const getLineSerieItem = (): SerieItem => {
       position: 'top',
     },
   }
+
+  if (smooth) {
+    item.smooth = true
+  }
+
+  return item
 }

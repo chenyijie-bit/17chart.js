@@ -27,14 +27,13 @@ export const merge = (
   defaultOption.xAxis.data = getAxisList(userOption)
 
   defaultOption.series = getSeries(userOption)
-  console.log(defaultOption.series)
 }
 
 const getSeries = (userOption: ObjectOf<any>) => {
-  const { data, yField } = userOption
+  const { data, yField, smooth } = userOption
 
   const _get = (data: any[]) => {
-    const item = getLineSerieItem()
+    const item = getLineSerieItem(smooth)
     item.data = data.map((i) => {
       return i[yField]
     })
