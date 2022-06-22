@@ -1,10 +1,12 @@
 import Graph from '../../core/graphs'
-import { getDefaultOption } from './default'
-import { GRAPH_TYPES } from '../../utils/types'
-import { merge } from './merge'
+
 import { ObjectOf } from '../../types/general'
+import { GRAPH_TYPES } from '../../utils/types'
 import { handler as rectCoorHandler } from '../../utils/coordinate/rectCoor/handler'
 import { handler } from '../../utils/option'
+
+import { getDefaultOption } from './default'
+import { merge } from './merge'
 
 export default class Bar extends Graph {
   /**图表选项 */
@@ -14,7 +16,7 @@ export default class Bar extends Graph {
 
   constructor(container: string, userOption: object) {
     super(container, userOption)
-    // 柱状图选项
+
     this.type = GRAPH_TYPES.BAR
     const defaultOption = getDefaultOption()
     // 柱状图自定义merge

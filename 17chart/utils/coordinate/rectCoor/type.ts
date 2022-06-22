@@ -52,3 +52,47 @@ export interface DataZoom {
   start: number
   end: number
 }
+
+export interface XAxis {
+  name?: string
+  type?: string
+  data?: string[]
+  axisTick: {
+    show: boolean
+  }
+  nameTextStyle: {
+    color: string
+    verticalAlign: string
+    lineHeight: number
+  }
+  axisLabel: {
+    rotate: number
+    margin: number
+    color: string
+  }
+  axisLine: {
+    lineStyle: {
+      color: string
+      opacity: number
+    }
+  }
+}
+
+export interface YAxis {
+  name?: string
+  type?: string
+  data?: string[]
+  nameTextStyle: {
+    align: string
+    color: string
+  }
+  axisLabel: {
+    color: string
+  }
+  minInterval: number
+  splitLine: {
+    lineStyle: {
+      color: string
+    }
+  }
+}

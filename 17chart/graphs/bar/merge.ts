@@ -28,7 +28,7 @@ export const merge = (
 }
 
 const getSeries = (userOption: ObjectOf<any>) => {
-  let { data, xField, yField, isStack, labelColor } = userOption
+  const { data, xField, yField, isStack, labelColor } = userOption
   const isExchangeAxis = getIsExchangeAxis(userOption)
 
   const _get = (data: any[], index?: number) => {
