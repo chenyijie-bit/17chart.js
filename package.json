@@ -1,5 +1,6 @@
 {
-  "private": true,
+  "name": "17chart.js",
+  "private": false,
   "scripts": {
     "dev": "umi dev",
     "build:chart": "rollup --config rollup.config.js",
@@ -35,6 +36,7 @@
     "prettier": "^2.2.0",
     "react": "17.x",
     "react-dom": "17.x",
+    "react-markdown": "^8.0.3",
     "rollup": "^2.75.5",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-less": "^1.1.3",

@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
 import $17chart from '../../../17chart/index'
 import { data1, data2, data3, data4, data5, data6, data7 } from './mock/data'
-import { deepAssign } from '../../../17chart/utils/tools'
 
-export default function IndexPage() {
+export default function BarPage() {
   useEffect(() => {
     // 1. 普通柱状图
     new $17chart.Bar('chart1', {
@@ -276,7 +275,7 @@ export default function IndexPage() {
     // 16. 柱状图（X、Y轴翻转，有百分比）
     new $17chart.Bar('chart16', {
       renderer: 'svg',
-      data: data5.slice(0, 10).map((i: any) => {
+      data: JSON.parse(JSON.stringify(data5.slice(0, 10))).map((i: any) => {
         i.value = i.value * 0.001
         return i
       }),

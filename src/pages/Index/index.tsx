@@ -1,11 +1,8 @@
 import { useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
+import ReactDom from 'react-dom'
+import md from '../../../README.md'
 
 export default function IndexPage() {
-  useEffect(() => {}, [])
-
-  return (
-    <div>
-      <h2>通用调试页</h2>
-    </div>
-  )
+  return <ReactMarkdown children={md}></ReactMarkdown>
 }

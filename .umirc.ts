@@ -9,8 +9,9 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', name: '通用调试页', component: '@/pages/Index/index' },
+    { path: '/', name: 'REAME.md', component: '@/pages/Index/index' },
     { path: '/bar', name: '柱状图', component: '@/pages/Bar/index' },
+    { path: '/line', name: '折线图', component: '@/pages/Line/index' },
   ],
   fastRefresh: {},
   history: {
