@@ -5,7 +5,7 @@ export const getDefaultOption = (): BarDefaultOption => {
   const defaultOption: BarDefaultOption = {
     tooltip: {
       trigger: 'item',
-      className: CLASS_NAME.TOOLTIP,
+      className: CLASS_NAME.BAR_TOOLTIP,
       axisPointer: {
         type: 'shadow',
         shadowStyle: {

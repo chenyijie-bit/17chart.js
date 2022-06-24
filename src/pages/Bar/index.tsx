@@ -19,10 +19,10 @@ export default function BarPage() {
       xField: 'name',
       yField: 'value',
       xAxis: {
-        name: '商品类别',
+        name: '学科',
       },
       yAxis: {
-        name: '售卖数量',
+        name: '参测人数',
       },
     })
 
@@ -52,10 +52,10 @@ export default function BarPage() {
       yField: 'value',
       name: '今日数码产品售卖情况',
       xAxis: {
-        name: '商品类别',
+        name: '学科',
       },
       yAxis: {
-        name: '售卖数量',
+        name: '参测人数',
       },
     })
 
@@ -69,10 +69,10 @@ export default function BarPage() {
     //   ],
     //   name: '今日数码产品售卖情况',
     //   xAxis: {
-    //     name: '商品类别',
+    //     name: '学科',
     //   },
     //   yAxis: {
-    //     name: '售卖数量',
+    //     name: '参测人数',
     //   },
     // })
 
@@ -204,10 +204,10 @@ export default function BarPage() {
       isShowLabel: false,
       name: '今日数码产品售卖情况',
       xAxis: {
-        name: '商品类别',
+        name: '学科',
       },
       yAxis: {
-        name: '售卖数量',
+        name: '参测人数',
       },
     })
 

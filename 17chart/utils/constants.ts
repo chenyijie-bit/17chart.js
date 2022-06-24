@@ -18,7 +18,7 @@ export const COLOR = {
 
 // 类名
 export const CLASS_NAME = {
-  TOOLTIP: 'yq_chart_tooltip',
+  BAR_TOOLTIP: 'yq_chart_tooltip--bar',
 }
 
 // 字体大小

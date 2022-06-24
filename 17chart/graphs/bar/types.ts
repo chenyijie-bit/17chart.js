@@ -33,7 +33,7 @@ export type Tooltip = {
 
 export interface SerieItem {
   name: string
-  type: 'bar'
+  type: string
   barMaxWidth: number
   barMinWidth: number
   barGap: string
