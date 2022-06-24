@@ -13,7 +13,7 @@ module.exports = {
       'https://cdn-cnc.staging.17zuoye.net/s17/displayPlatform/img/onelogo.e075a18c.png',
     title: '17Chart',
     description: '17图表库',
-    // siteUrl: 'https://gatsby-starter-theme-antv.antv.vision',
+    siteUrl: 'https://gatsby-starter-theme-antv.antv.vision',
     // github地址
     githubUrl: 'https://github.com/Lee-Tanghui/17chart.js',
     navs: [
