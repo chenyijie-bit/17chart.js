@@ -3,9 +3,9 @@ module.exports = {
     {
       resolve: '@antv/gatsby-theme-antv',
       options: {
-        cname: true
-      }
-    }
+        cname: true,
+      },
+    },
   ],
   siteMetadata: {
     githubUrl: 'https://github.com/Lee-Tanghui/17chart.js',
@@ -20,42 +20,43 @@ module.exports = {
       {
         slug: 'docs/specification/getting-started',
         title: {
-          zh: '开始使用'
-        }
+          zh: '开始使用',
+          en: '开始使用',
+        },
       },
       {
         slug: 'examples',
         title: {
           zh: '示例',
-          en: 'Examples'
-        }
+          en: '示例',
+        },
       },
       {
         slug: 'independent',
         title: {
           zh: '独立',
-          en: 'MyApp'
-        }
+          en: '独立',
+        },
         // target: '_blank',
-      }
+      },
     ],
     docs: [
       {
         slug: 'specification/category',
         title: {
           zh: '分类一',
-          en: 'category1'
+          en: 'category1',
         },
-        order: 4
+        order: 4,
       },
       {
         slug: 'specification/category/three',
         title: {
           zh: '第三层',
-          en: 'three level'
+          en: 'three level',
         },
-        order: 2
-      }
+        order: 2,
+      },
     ],
     examples: [
       {
@@ -63,9 +64,9 @@ module.exports = {
         icon: 'pie',
         title: {
           zh: '饼图分类',
-          en: 'Category'
-        }
-      }
+          en: 'Category',
+        },
+      },
     ],
     showGithubStar: false, // 是否展示 Github Star
     showSearch: false, // 是否展示搜索框
@@ -76,8 +77,8 @@ module.exports = {
     playground: {
       container: '<div id="container" />',
       playgroundDidMount: 'console.log("playgroundDidMount");',
-      playgroundWillUnmount: 'console.log("playgroundWillUnmount");'
+      playgroundWillUnmount: 'console.log("playgroundWillUnmount");',
     },
     redirects: [],
-  }
-};
+  },
+}
