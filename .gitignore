@@ -24,3 +24,11 @@
 
 #gatsby
 /gatsby-site/node_modules
+/gatsby-site/npm-debug.log*
+/gatsby-site/yarn-error.log
+/gatsby-site/yarn.lock
+/gatsby-site/package-lock.json
+/gatsby-site/.cache
+/gatsby-site/public
+# production
+/gatsby-site/dist
