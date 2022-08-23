@@ -32,23 +32,24 @@ const IndexPage = () => {
   const bannerButtons = [
     {
       text: '图表示例',
-      link: '#features',
+      link: '/en/examples/basic',
       type: 'primary',
     },
   ]
   return (
     <>
-      <SEO title={'蚂蚁数据可视化'} lang="zh" />
+      <SEO title={'17chart.js数据可视化'} lang="zh" />
       <Banner
         // coverImage={coverImage}
         coverImage={<BannerSVG />}
         title={'让数据栩栩如生'}
         description={
-          'AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。'
+          '17chart.js是全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。'
         }
         className="banner"
         buttons={bannerButtons}
         showGithubStars={false}
+        notifications={[]}
       />
       <Features
         id="features"

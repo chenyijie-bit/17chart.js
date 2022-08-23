@@ -8,55 +8,54 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    githubUrl: 'https://github.com/Lee-Tanghui/17chart.js',
     logoUrl:
       'https://cdn-cnc.staging.17zuoye.net/s17/displayPlatform/img/onelogo.e075a18c.png',
     title: '17Chart',
     description: '17图表库',
-    siteUrl: 'https://gatsby-starter-theme-antv.antv.vision',
+    siteUrl: 'https://github.com/Lee-Tanghui/17chart.js',
     // github地址
     githubUrl: 'https://github.com/Lee-Tanghui/17chart.js',
     navs: [
       {
-        slug: 'docs/specification/getting-started',
+        slug: 'docs/specification/about',
         title: {
-          zh: '开始使用',
-          en: '开始使用',
+          zh: '简介',
+          en: '简介',
         },
       },
       {
-        slug: 'examples',
+        slug: 'examples/basic',
         title: {
-          zh: '示例',
-          en: '示例',
+          zh: '图表示例',
+          en: '图表示例',
         },
       },
       {
         slug: 'independent',
         title: {
-          zh: '独立',
-          en: '独立',
+          zh: '开发者',
+          en: '开发者',
         },
         // target: '_blank',
       },
     ],
     docs: [
-      {
-        slug: 'specification/category',
-        title: {
-          zh: '分类一',
-          en: 'category1',
-        },
-        order: 4,
-      },
-      {
-        slug: 'specification/category/three',
-        title: {
-          zh: '第三层',
-          en: 'three level',
-        },
-        order: 2,
-      },
+      // {
+      //   slug: 'specification/category',
+      //   title: {
+      //     zh: '分类一',
+      //     en: 'category1',
+      //   },
+      //   order: 4,
+      // },
+      // {
+      //   slug: 'specification/category/three',
+      //   title: {
+      //     zh: '第三层',
+      //     en: 'three level',
+      //   },
+      //   order: 2,
+      // },
     ],
     examples: [
       {
